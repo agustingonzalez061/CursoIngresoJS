@@ -12,7 +12,7 @@ function sumar()
     numero2 = parseInt(numero2); //convertimos "numero2" a numerica
     var resultado;
     resultado = numero1 + numero2;
-    alert(resultado);
+    alert("la suma es " + resultado);
 }
 
 function restar()
@@ -25,7 +25,7 @@ function restar()
     numero2 = parseInt(numero2); //convertimos "numero2" a numerica
     var resultado;
     resultado = numero1 - numero2;
-    alert(resultado);
+    alert("la resta es " + resultado);
 }
 
 function multiplicar()
@@ -38,7 +38,7 @@ function multiplicar()
     numero2 = parseInt(numero2); //convertimos "numero2" a numerica
     var resultado;
     resultado = numero1 * numero2;
-    alert(resultado);
+    alert("la multiplicacion es " + resultado);
 }
 
 function dividir()
@@ -51,6 +51,6 @@ function dividir()
     numero2 = parseInt(numero2); //convertimos "numero2" a numerica
     var resultado;
     resultado = numero1 / numero2;
-    alert(resultado);
+    alert(" la division es " + resultado);
 }
 

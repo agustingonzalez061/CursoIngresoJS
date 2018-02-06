@@ -11,6 +11,6 @@ function sumar()
     numero2 = parseInt(numero2); // convertimos "numero2" a numerica
     var resultado;
     resultado =  numero1 + numero2;
-    alert(resultado);
+    alert("la suma es " + resultado);
 }
 
