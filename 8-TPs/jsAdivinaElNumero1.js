@@ -18,6 +18,7 @@ function comenzar()
 		//alert(numeroSecreto );
  numeroSecreto = Math.floor(Math.random()*(101-1)+1);
  console.log (numeroSecreto);
+ contador = 0;
 }
 
 function verificar()
@@ -26,13 +27,19 @@ function verificar()
   numero = document.getElementById("numero").value;
   contadorIntentos= contadorIntentos +1;
   document.getElementById("intentos").value = contadorIntentos
-  if ((numero == numeroSecreto) && contadorIntentos== 1)
+  if (contadorIntentos >10)
   {
-    alert ("Casi lo logras en el primer intento, sigue probando")
+    alert("se termino el juego")
   }
-  else if (contadorIntentos == 11)
+  else if ((numero == numeroSecreto) && contadorIntentos== 1)
   {
-    alert("se termino el juego vuelve a empezar")
+    numeroSecreto = numeroSecreto + 1
+    alert ("Te falto")
+      if (numeroSecreto > 100 && contadorIntentos == 1)
+  {
+    numeroSecreto = numeroSecreto -2
+    alert ("Te falto")
+  }
   }
   else if (numero == numeroSecreto)
   {
@@ -46,4 +53,6 @@ function verificar()
   {
     alert("Te falto")
   }
+  
+  
 }

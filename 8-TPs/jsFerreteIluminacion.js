@@ -19,7 +19,13 @@ function CalcularPrecio ()
     marca = document.getElementById("Marca").value;
     lamparas = parseInt (lamparas);
     precio = lamparas * 35;
-    if (lamparas >= 6)
+    if (lamparas >=7)
+    {
+        descuento = precio / 2
+        iibb = descuento + (descuento * 0.10)
+        alert ("Usted pago $" + iibb + " de IIBB")
+    }
+    else if (lamparas >= 6)
     {
         descuento = precio / 2
         document.getElementById("precioDescuento").value = descuento
@@ -65,9 +71,5 @@ function CalcularPrecio ()
         descuento = (precio) - (precio * 0.05)
         document.getElementById("precioDescuento").value = descuento
     }
-    if (descuento <= 120)
-    {
-        iibb = descuento + (descuento * 0.10)
-        alert ("Usted pago $" +  iibb + " de IIBB")
-    }
+    
 }
