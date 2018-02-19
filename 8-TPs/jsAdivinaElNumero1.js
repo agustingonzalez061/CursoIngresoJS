@@ -26,7 +26,15 @@ function verificar()
   numero = document.getElementById("numero").value;
   contadorIntentos= contadorIntentos +1;
   document.getElementById("intentos").value = contadorIntentos
-  if (numero == numeroSecreto)
+  if ((numero == numeroSecreto) && contadorIntentos== 1)
+  {
+    alert ("Casi lo logras en el primer intento, sigue probando")
+  }
+  else if (contadorIntentos == 11)
+  {
+    alert("se termino el juego vuelve a empezar")
+  }
+  else if (numero == numeroSecreto)
   {
     alert("Usted es un ganador y en solo "+ contadorIntentos +" intentos.")
   }
