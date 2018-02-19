@@ -53,6 +53,4 @@ function verificar()
   {
     alert("Te falto")
   }
-  
-  
 }
