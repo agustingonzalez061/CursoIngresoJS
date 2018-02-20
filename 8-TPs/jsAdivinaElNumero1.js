@@ -33,13 +33,10 @@ function verificar()
   }
   else if ((numero == numeroSecreto) && contadorIntentos== 1)
   {
-    numeroSecreto = numeroSecreto + 1
-    alert ("Te falto")
-      if (numeroSecreto > 100 && contadorIntentos == 1)
-  {
-    numeroSecreto = numeroSecreto -2
-    alert ("Te falto")
-  }
+    while (numero == numeroSecreto)
+    numeroSecreto = Math.floor(Math.random()*(101-1)+1);
+    console.log (numeroSecreto);
+    alert("Sigue intentando te quedan varios intentos")
   }
   else if (numero == numeroSecreto)
   {
