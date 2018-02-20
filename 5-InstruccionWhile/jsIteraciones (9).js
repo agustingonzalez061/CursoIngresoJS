@@ -17,6 +17,7 @@ function Mostrar()
 		numero = parseInt (numero)
 		if (isNaN (numero))
 		{
+			alert ("Solo con numeros porfavor")
 			continue
 		}
 		contador ++;
@@ -35,6 +36,6 @@ function Mostrar()
 			minimo = numero
 		} // realizo la operacion del minimo
 	}
-	document.getElementById("maximo").value= maximo
-	document.getElementById("minimo").value= minimo	
+	document.getElementById("maximo").value= maximo;
+	document.getElementById("minimo").value= minimo;
 }//FIN DE LA FUNCIÓN

@@ -26,7 +26,9 @@ function Mostrar()
 			if (respuesta !=0)
 			{
 				negativo *= respuesta
-				else if (respuesta = 0)
+			}
+			if (respuesta == 0)
+			{
 				contador --;
 			}
 		} // realizo la operacion de los negativos
