@@ -14,95 +14,124 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
     var ecivil;
     var legajo;
     var nacionalidad;
-    var bandera = "Si";
-    var sueldo1 = "1";
+    var contador = 0;
+    var sueldomaxna = 0;
+    var sueldomaxf = 0;
+    var sueldomaxfa = 0;
+    var sueldopromediom = 0;
+    var sueldopromediof = 0;
+    var sueldonetof = 0;
+    var sueldonetom = 0;
+    var sueldopromedio = 0;
+    var acumulador = 0;
+    var acumulador1 = 0;
+    var acumulador2 = 0;
     //fin de variables
 function ComenzarIngreso () 
 {
-for (var i = 0 ; i < 7 ; i ++)
-{
-    asignarDatos () 
+    while (contador != 3)
+    {    
+        contador ++;
+        console.log (contador)
+        if (contador != 3)
+        {
+            edad = prompt ("Ingrese su edad porfavor");
+            edad = parseInt (edad)
+            while (edad <18 || edad >90 || isNaN (edad))
+            {
+                    edad = prompt ("Ingrese denuevo su edad")
+            }
+            }
 
-var contador = 0
-contador ++
-if (contador == 7)
-   {
-    operacioneUno ()
-    operacionDos ()
-    operacionTres ()
-    operacionCuatro ()
-    operacionCinco ()
-    operacionSeis ()
-    operacionSiete ()
-    operacionOcho ()
-} 
-} 
-function asignarDatos ()
-{
-    pedirEdad ()
-    pedirSexo ()
-    pedirSueldo ()
-    pedirEcivil ()
-    pedirLegajo ()
-    pedirNacionalidad ()
 
-    
-}
-function pedirEdad ()
-{
-        edad = prompt ("Ingrese su edad porfavor");
-        edad = parseInt (edad)
-        while (edad <18 || edad >90 || isNaN (edad))
+        if (contador != 3)
         {
-            edad = prompt ("Ingrese denuevo su edad")
+            sexo = prompt ("Ingrese su sexo porfavor")                
+            while (sexo != "m" && sexo != "f")
+            {
+                sexo = prompt ("Ingrese denuevo su sexo")
+                        
+            }
         }
-}
-function pedirSexo ()
-{
-        sexo = prompt ("Ingrese su sexo porfavor")        
-        while (sexo != "m" && sexo != "f")
+
+        if (contador != 3)
         {
-            sexo = prompt ("Ingrese denuevo su sexo")
-        }
-}
-function pedirSueldo ()
-{
-        prompt ("Ingrese su sueldo porfavor");
-        sueldo = parseInt (sueldo)
-        while (sueldo < 8000 || isNaN (sueldo))
-        {
+            sueldo =prompt ("Ingrese su sueldo porfavor");
+            sueldo = parseInt (sueldo)
+            if (sueldo < 8000 || isNaN (sueldo))
+            {
             sueldo = prompt ("Ingrese denuevo su sueldo")
+                            
+            }
         }
-}
-function pedirEcivil ()
-{
-        ecivil = prompt ("Ingrese su estado civil porfavor");
-        ecivil = parseInt (ecivil)
-        while (ecivil <1 || ecivil > 4 || isNaN (ecivil))
+        if (contador != 3)
         {
+            ecivil = prompt ("Ingrese su estado civil porfavor");
+            ecivil = parseInt (ecivil)
+            while (ecivil <1 && ecivil > 4 || isNaN (ecivil))
+            {
             evicil = prompt ("Ingrese su estado civil denuevo")
+            }
         }
-}
-function pedirLegajo ()
-{
-        legajo = prompt ("Ingrese su legajo porfavor");
-        legajo = parseInt (legajo)
-        while (legajo < 0999 && legajo > 9999 || isNaN (legajo))
+
+        if (contador != 3)
         {
+            legajo = prompt ("Ingrese su legajo porfavor");
+            legajo = parseInt (legajo)
+            while (legajo < 0999 && legajo > 9999 || isNaN (legajo))
+            {
             legajo = prompt ("Ingrese su legajo denuevo")
+            }
         }
-}
-function pedirNacionalidad ()
-{
+
+        if (contador != 3)
+        {
         nacionalidad = prompt ("Ingrese su nacionalidad porfavor");
         while (nacionalidad != "a" && nacionalidad != "e" && nacionalidad != "n")
         {
-            nacionalidad = prompt ("Ingrese su nacionalidad denuevo")
+        nacionalidad = prompt ("Ingrese su nacionalidad denuevo")
         }
-}      
-function mostrarValores ()
-{
-        document.getElementById ("Edad").value = edad
+        }
+    // 1)
+    if (nacionalidad == "n" && sueldo > sueldomaxna)
+        {
+            sueldomaxna = sueldo
+            
+        }
+    // 2)
+    if (sueldomaxf < sueldo && sexo == "f")
+    {
+        sueldomaxf = sueldo
+    }
+    if (nacionalidad == "a" && sueldomaxfa < sueldo && sexo == "f")
+    {
+        sueldomaxfa = sueldo
+    }
+    
+    // 3)
+    if (sexo == "f")
+    {
+        acumulador1 = acumulador1 + sueldo
+        if (contador == 3)
+        {
+        sueldopromediof = acumulador % contador
+        }
+    }
+    if (sexo == "m")
+    {
+        acumulador2 = acumulador2 + sueldo
+        if (contador == 3)
+        sueldopromediom = acumulador1 % contador
+    }
+    if (contador == 3)
+    {
+        sueldopromedio = (sueldopromediof + sueldopromediom) / 2
+        
+    }
+}alert ("1)El sueldo maximo de los nacionalizados es " + sueldomaxna)
+alert ("2)El sueldo maximo femenino es " + sueldomaxf + " y el sueldo maximo de argentinas es " + sueldomaxfa)
+alert ("3) El sueldo promedio femenino es " + sueldopromediof + ", el sueldo promedio masculino es " + sueldopromediom + " y el sueldo promedio general es " + sueldopromedio)
+document.getElementById ("Edad").value = edad
         convertirSexo ()
         document.getElementById ("Sexo").value = sexo
         convertirEcivil ()
@@ -111,112 +140,40 @@ function mostrarValores ()
         document.getElementById ("Legajo").value = legajo
         convertirNacionalidad ()
         document.getElementById ("Nacionalidad").value = nacionalidad
-}
-function convertirEcivil ()
-{
-    switch (ecivil)
-    {
-        case "1" : ecivil = "Soltero"
-        break;
-        case "2" : ecivil ="Casado"
-        break;
-        case "3" : ecivil ="Divorciados"
-        break;
-        case "4" : ecivil ="viudos"
-        break;
-    }
-}
-function convertirSexo ()
-{
-    switch (sexo)
-    {
-        case "m" : sexo = "Masculino"
-        break;
-        case "f" : sexo = "Femenino"
-        break;
-    }
-}
-function convertirNacionalidad ()
-{
-    switch (nacionalidad)
-    {
-        case "a" : nacionalidad = "Argentino"
-        break;
-        case "e" : nacionalidad = "Extrajero"
-        break;
-        case "n" : nacionalidad = "Nacionalizados"
-        break;
-    }
-}
-function operacioneUno ()
-{
-    var sueldomaxn;
-    var sueldominn;
-    console.log (sueldo)
-    if (nacionalidad == "n")
-    {
-    if (sueldo1 == "1")
-    {
-        sueldo1 = "2"
-        sueldomaxn = sueldo
-        sueldominn = sueldo
-    }
-    if (sueldomaxn < sueldo)
-    {
-        sueldomaxn = sueldo
-    }
-    if (sueldominn > sueldo)
-    {
-        sueldominn = sueldo
-    }
-    alert (" el sueldo maximo de los nacionalizados es " + sueldomaxn + " y el sueldo minimo " + sueldominn)
-    }
-    
-} 
-function operacionDos ()
-{
-    var sueldomaxF
-    var sueldomaxFa
-    if (sexo == "f" && nacionalidad == "a")
-    {
-        if (sueldo1 == "1")
-        {
-            sueldo1 == "2"
-            sueldomaxF = sueldo
-            sueldomaxFa = sueldo
-        }
-        if (sueldo > sueldomaxF)
-        {
-            sueldomaxF = sueldo
-        }
-        if (sueldomaxFa < sueldo)
-        {
-            sueldomaxFa = sueldo
-        }
-    }
-}
-function operacionTres ()
-{
 
-}
-function operacionCuatro ()
-{
+             function convertirEcivil ()
 
-}
-function operacionCinco ()
-{
+                {switch (ecivil)
+                {
+                case "1" : ecivil = "Soltero"
+                break;
+                case "2" : ecivil ="Casado"
+                break;
+                case "3" : ecivil ="Divorciados"
+                break;
+                case "4" : ecivil ="viudos"
+                break;
+                }}
 
-}
-function operacionSeis ()
-{
+                function convertirSexo ()
 
-}
-function operacionSiete ()
-{
+                {switch (sexo)
+                {
+                case "m" : sexo = "Masculino"
+                break;
+                case "f" : sexo = "Femenino"
+                break;
+                }}
 
-}
-function operacionOcho ()
-{
+                function convertirNacionalidad ()
 
-}
+                {switch (nacionalidad)
+                {
+                case "a" : nacionalidad = "Argentino"
+                break;
+                case "e" : nacionalidad = "Extrajero"
+                break;
+                case "n" : nacionalidad = "Nacionalizados"
+                break;
+                }}
 }
