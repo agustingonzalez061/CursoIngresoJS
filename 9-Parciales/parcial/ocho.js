@@ -2,14 +2,14 @@ function Mostrar()
 {
     var contador = 0;
     var numero;
-    var suma;
+    var suma = 0;
     var promedio;
     var pares = 0;
     var primero = true;
     var maximo;
     var minimo;
     var respuesta = "si"
-
+    suma = parseInt (suma)
     while (respuesta == "si")
     {
         numero = prompt ("Ingrese un numero y cancelar para terminar")
@@ -24,7 +24,7 @@ function Mostrar()
             continue;
         }
         contador ++;
-        if (primera == true)
+        if (primero == true)
         {
             primera = false
             maximo = numero
@@ -36,7 +36,7 @@ function Mostrar()
         }
         else if (minimo < numero)
         {
-            minimo = maximo
+            minimo = numero
         }
         if (numero %2 == 0)
         {
@@ -44,10 +44,12 @@ function Mostrar()
         }
         if (contador != 0)
         {
-            promedio = numero % contador
+            suma = suma + numero
         }
-            suma += numero
-
+        if (contador != 0)
+        {
+            promedio = suma / contador
+        }
     }
-    document.write ("A) " + pares + " B) "+ promedio + " C) " + suma + " D) " + maximo + minimo)
+    document.write ("A) " + pares + " B) "+ promedio + " C) " + suma + " D) " + maximo + " y el minimo " + minimo)
 }

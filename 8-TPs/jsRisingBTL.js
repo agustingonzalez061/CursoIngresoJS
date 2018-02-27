@@ -29,105 +29,116 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
     //fin de variables
 function ComenzarIngreso () 
 {
-    while (contador != 3)
-    {    
-        contador ++;
-        console.log (contador)
-        if (contador != 3)
-        {
-            edad = prompt ("Ingrese su edad porfavor");
-            edad = parseInt (edad)
-            while (edad <18 || edad >90 || isNaN (edad))
-            {
+while (contador != 8)
+{    
+contador ++;
+console.log (contador)
+asignarDatos ()
+if (contador ==8)
+{
+    realizarOperaciones ()
+}
+}
+function asignarDatos ()
+{
+    tomarEdad ()
+    tomarSexo ()
+    tomarSueldo ()
+    tomarEcivil ()
+    tomarLegajo ()
+    tomarNacionalidad ()
+}
+function tomarEdad ()
+{
+edad = prompt ("Ingrese su edad porfavor");
+edad = parseInt (edad)
+while (edad <18 || edad >90 || isNaN (edad))
+{
                     edad = prompt ("Ingrese denuevo su edad")
-            }
-            }
+}
+}
 
 
-        if (contador != 3)
-        {
-            sexo = prompt ("Ingrese su sexo porfavor")                
-            while (sexo != "m" && sexo != "f")
-            {
-                sexo = prompt ("Ingrese denuevo su sexo")
+function tomarSexo ()
+{
+sexo = prompt ("Ingrese su sexo porfavor")                
+while (sexo != "m" && sexo != "f")
+{
+sexo = prompt ("Ingrese denuevo su sexo")
                         
-            }
-        }
+}
+}
+function tomarSueldo ()
+{
+sueldo =prompt ("Ingrese su sueldo porfavor");
+sueldo = parseInt (sueldo)
+if (sueldo < 8000 || isNaN (sueldo))
+{
+sueldo = prompt ("Ingrese denuevo su sueldo")                   
+}
+}
+function tomarEcivil ()
+{
+ecivil = prompt ("Ingrese su estado civil porfavor");
+ecivil = parseInt (ecivil)
+while (ecivil <1 && ecivil > 4 || isNaN (ecivil))
+{
+evicil = prompt ("Ingrese su estado civil denuevo")
+}
+}
 
-        if (contador != 3)
-        {
-            sueldo =prompt ("Ingrese su sueldo porfavor");
-            sueldo = parseInt (sueldo)
-            if (sueldo < 8000 || isNaN (sueldo))
-            {
-            sueldo = prompt ("Ingrese denuevo su sueldo")
-                            
-            }
-        }
-        if (contador != 3)
-        {
-            ecivil = prompt ("Ingrese su estado civil porfavor");
-            ecivil = parseInt (ecivil)
-            while (ecivil <1 && ecivil > 4 || isNaN (ecivil))
-            {
-            evicil = prompt ("Ingrese su estado civil denuevo")
-            }
-        }
+function tomarLegajo ()
+{
+legajo = prompt ("Ingrese su legajo porfavor");
+legajo = parseInt (legajo)
+while (legajo < 0999 && legajo > 9999 || isNaN (legajo))
+{
+legajo = prompt ("Ingrese su legajo denuevo")
+}
+}
 
-        if (contador != 3)
-        {
-            legajo = prompt ("Ingrese su legajo porfavor");
-            legajo = parseInt (legajo)
-            while (legajo < 0999 && legajo > 9999 || isNaN (legajo))
-            {
-            legajo = prompt ("Ingrese su legajo denuevo")
-            }
-        }
-
-        if (contador != 3)
-        {
-        nacionalidad = prompt ("Ingrese su nacionalidad porfavor");
-        while (nacionalidad != "a" && nacionalidad != "e" && nacionalidad != "n")
-        {
-        nacionalidad = prompt ("Ingrese su nacionalidad denuevo")
-        }
-        }
-    // 1)
-    if (nacionalidad == "n" && sueldo > sueldomaxna)
-        {
-            sueldomaxna = sueldo
-            
-        }
-    // 2)
-    if (sueldomaxf < sueldo && sexo == "f")
-    {
-        sueldomaxf = sueldo
-    }
-    if (nacionalidad == "a" && sueldomaxfa < sueldo && sexo == "f")
-    {
-        sueldomaxfa = sueldo
-    }
-    
-    // 3)
-    if (sexo == "f")
-    {
-        acumulador1 = acumulador1 + sueldo
-        if (contador == 3)
-        {
-        sueldopromediof = acumulador % contador
-        }
-    }
-    if (sexo == "m")
-    {
-        acumulador2 = acumulador2 + sueldo
-        if (contador == 3)
-        sueldopromediom = acumulador1 % contador
-    }
-    if (contador == 3)
-    {
-        sueldopromedio = (sueldopromediof + sueldopromediom) / 2
-        
-    }
+function tomarNacionalidad ()
+{
+nacionalidad = prompt ("Ingrese su nacionalidad porfavor");
+while (nacionalidad != "a" && nacionalidad != "e" && nacionalidad != "n")
+{
+nacionalidad = prompt ("Ingrese su nacionalidad denuevo")
+}
+}
+function realizarOperaciones
+// 1)
+if (nacionalidad == "n" && sueldo > sueldomaxna)
+{
+sueldomaxna = sueldo         
+}
+// 2)
+if (sueldomaxf < sueldo && sexo == "f")
+{
+sueldomaxf = sueldo
+}
+if (nacionalidad == "a" && sueldomaxfa < sueldo && sexo == "f")
+{
+sueldomaxfa = sueldo
+}  
+// 3)
+if (sexo == "f")
+{
+acumulador1 = acumulador1 + sueldo
+if (contador == 3)
+{
+sueldopromediof = acumulador % contador
+}
+}
+if (sexo == "m")
+{
+acumulador2 = acumulador2 + sueldo
+if (contador == 3)
+sueldopromediom = acumulador1 % contador
+}
+if (contador == 3)
+{
+sueldopromedio = (sueldopromediof + sueldopromediom) / 2
+}
 }alert ("1)El sueldo maximo de los nacionalizados es " + sueldomaxna)
 alert ("2)El sueldo maximo femenino es " + sueldomaxf + " y el sueldo maximo de argentinas es " + sueldomaxfa)
 alert ("3) El sueldo promedio femenino es " + sueldopromediof + ", el sueldo promedio masculino es " + sueldopromediom + " y el sueldo promedio general es " + sueldopromedio)
